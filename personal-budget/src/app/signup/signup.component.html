@@ -1,0 +1,45 @@
+<div *ngIf="isLoggedIn; else loggedOut">Logged in as {{ role }}.</div>
+
+<ng-template #loggedOut>
+  <div class="container">
+    <h1>Sign up</h1>
+    <p class="error">{{ error }}</p>
+
+    <div class="col-4">
+      <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+        <div class="form-group">
+          <label
+            >Username<input
+              type="text"
+              class="form-control"
+              name="user"
+              for="username"
+              formControlName="user"
+          /></label>
+          <br />
+        </div>
+        <div class="form-group">
+          <label
+            >Password<input
+              type="password"
+              class="form-control"
+              for="password"
+              name="passwd"
+              formControlName="passwd"
+          /></label>
+          <br />
+        </div>
+
+        <button type="submit" class="btn btn-primary forsubmit" value="Sign up">
+          Sign up
+        </button>
+      </form>
+    </div>
+
+    <hr />
+    <p>
+      Go back to
+      <a [routerLink]="['/login']" class="btn btn-secondary">Log in</a>
+    </p>
+  </div>
+</ng-template>

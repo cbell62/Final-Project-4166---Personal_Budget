@@ -1,0 +1,51 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{ authService.getLoggedUser() }}.
+</div>
+
+<ng-template #loggedOut>
+  <div class="container">
+    <div class="alert alert-danger" *ngIf="sessionExpired">
+      Your session is expired. Please login again.
+    </div>
+    <h1>Login</h1>
+
+    <div class="col-4">
+      <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+        <div class="form-group">
+          <label
+            >Username<input
+              type="text"
+              class="form-control"
+              name="user"
+              for="username"
+              formControlName="user"
+          /></label>
+          <br />
+        </div>
+        <div class="form-group">
+          <label
+            >Password<input
+              type="password"
+              class="form-control"
+              for="password"
+              name="passwd"
+              formControlName="passwd"
+          /></label>
+          <br />
+        </div>
+
+        <button type="submit" class="btn btn-primary forsubmit" value="Log in">
+          Log in
+        </button>
+      </form>
+    </div>
+
+    <!-- <button class="btn btn-secondary" (click)="login()">Login to dashboard</button>
+  <button class="btn btn-primary" (click)="loginAdmin()">Login as Admin</button> -->
+    <hr />
+    <p>
+      Don't have an account?
+      <a [routerLink]="['/signup']" class="btn btn-secondary">Sign Up</a>
+    </p>
+  </div>
+</ng-template>

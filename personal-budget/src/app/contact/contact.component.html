@@ -1,0 +1,9 @@
+<main role="main" class="container center">
+  <pb-breadcrumbs>
+    <a [routerLink]="['/']">Home</a>
+    <p>&nbsp;&nbsp;/&nbsp;&nbsp;</p>
+    <p>Contact</p>
+  </pb-breadcrumbs>
+
+  <h2>We're here to help {{ authService.getLoggedUser() }}!</h2>
+</main>

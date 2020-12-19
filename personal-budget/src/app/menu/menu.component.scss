@@ -1,0 +1,47 @@
+nav.l1 {
+  width: 100%;
+  background-color: #4d5791;
+  height: 44px;
+  padding: 0 40px;
+}
+
+nav.l1 ul,
+nav.l1 ul li {
+  margin: 0;
+  padding: 0 ;
+  list-style: none;
+  display: inline-block;
+}
+
+nav.l1 ul li a {
+  display: block;
+  padding: 0 10px;
+  line-height: 44px;
+  font-size: 1.4em;
+  min-width: 44px;
+  text-decoration: none;
+  color: #fff;
+  margin: 0;
+}
+
+nav.l1 ul li a:hover,
+nav.l1 ul li a:focus
+{
+  background-color: white;
+  color: #4d5791;
+}
+
+
+@media screen and (min-width: 768px) {
+  body {
+      font-size: 14px;
+  }
+  .page-area article {
+      margin: 10px;
+      max-width: 340px;
+  }
+  nav.l1 ul li a {
+      padding: 0 20px;
+  }
+}
+

@@ -1,0 +1,111 @@
+<main role="main" class="container center">
+  <pb-breadcrumbs>
+    <a [routerLink]="['/']">Home</a>
+    <p>&nbsp;&nbsp;/&nbsp;&nbsp;</p>
+    <p>About</p>
+  </pb-breadcrumbs>
+
+  <div class="card">
+    <div class="card-header">
+      {{ pageTitle }}
+    </div>
+
+    <div class="card-body">
+      <form novalidate (ngSubmit)="saveBudget()" [formGroup]="budgetForm">
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="titleId">Title</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="titleId"
+              type="text"
+              placeholder=""
+              formControlName="title"
+              [ngClass]="{ 'is-invalid': displayMessage.title }"
+            />
+            <span class="invalid-feedback">
+              {{ displayMessage.title }}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="budgetId">Budget</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="budgetId"
+              type="text"
+              placeholder=""
+              formControlName="budget"
+              [ngClass]="{ 'is-invalid': displayMessage.budget }"
+            />
+            <span class="invalid-feedback">
+              {{ displayMessage.budget }}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="colorId"
+            >Color (hex)</label
+          >
+
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="colorId"
+              type="text"
+              placeholder=""
+              formControlName="color"
+              [ngClass]="{ 'is-invalid': displayMessage.color }"
+            />
+            <span class="invalid-feedback">
+              {{ displayMessage.color }}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <div class="offset-md-2 col-md-4">
+            <button
+              class="btn btn-primary mr-3"
+              style="width: 80px"
+              type="submit"
+              [title]="
+                budgetForm.valid
+                  ? 'Save your entered data'
+                  : 'Disabled until the form data is valid'
+              "
+              [disabled]="!budgetForm.valid"
+            >
+              Save
+            </button>
+            <button
+              class="btn btn-outline-secondary mr-3"
+              style="width: 80px"
+              type="button"
+              title="Cancel your edits"
+              [routerLink]="['/dashboard']"
+            >
+              Cancel
+            </button>
+            <button
+              class="btn btn-outline-warning"
+              style="width: 80px"
+              type="button"
+              title="Delete this budget"
+              (click)="deleteBudget()"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+  </div>
+</main>

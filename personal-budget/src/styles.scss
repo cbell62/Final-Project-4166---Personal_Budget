@@ -1,0 +1,128 @@
+
+$primary: rebeccapurple;
+$danger: #dd0000;
+$success: lime;
+$warning: orange;
+$info: aqua;
+
+$body-bg: #f3f3f0;
+
+@import "bootstrap";
+
+// @import "~bootstrap/dist/css/bootstrap.css";
+
+
+div.card-header {
+  font-size: large;
+ }
+
+ div.card {
+   margin-top: 10px
+ }
+
+ .table {
+   margin-top: 10px
+ }
+
+
+a.skip-main {
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+}
+
+a.skip-main:focus, a.skip-main:active {
+  background-color: white;
+  color: #4d5791;
+  left: auto;
+  top: auto;
+  width: 100%;
+  height: 44px;
+  overflow:auto;
+  margin: 0px;
+  padding: 0px 10px;
+  line-height: 44px;
+  text-align: center;
+  font-size: 1.4em;
+  z-index: 999;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #4d5791;
+}
+
+.container {
+  padding: 40px;
+  width: 100%;
+}
+
+// .page-area {
+//   max-width: 768px;
+//   display: inline-block;
+// }
+
+footer {
+  height: 50px;
+  background-color: #b4c6f0;
+  padding: 40px;
+}
+
+.center {
+  text-align: center;
+}
+
+.page-area article {
+  display: inline-block;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 240px;
+  text-align: justify;
+  margin: 20px;
+  vertical-align: top;
+}
+
+// .page-area h3 {
+//   color: #4d5791;
+//   font-size: 2em;
+//   margin: 0.67em 0;
+// }
+
+#breadcrumbs {
+  list-style:none;
+  display:flex;
+  padding:8px 16px;
+}
+
+#breadcrumbs li {
+  margin:8px;
+}
+
+#breadcrumbs li a {
+  color:#0052c2;
+  text-decoration:none;
+}
+#breadcrumbs li a:hover {
+  transition-delay:50ms;
+  transition:50ms;
+  color:#3867d6;
+  text-decoration:underline;
+}
+
+#breadcrumbs p {
+  color: black;
+  margin:8px;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+      font-size: 14px;
+  }
+  .page-area article {
+      margin: 10px;
+      max-width: 340px;
+  }
+}

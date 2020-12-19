@@ -1,0 +1,132 @@
+<main role="main" class="container">
+  <pb-breadcrumbs>
+    <a [routerLink]="['/']">Home</a>
+    <p>&nbsp;&nbsp;/&nbsp;&nbsp;</p>
+    <p>Dashboard</p>
+  </pb-breadcrumbs>
+  <h2 class="center mb-5">{{ authService.getLoggedUser() }}'s Dashboard</h2>
+
+  <div class="card mb-5">
+    <div class="card-header center">Budget table</div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table mb-0" *ngIf="allBudget && allBudget.length">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <!-- <th>ID</th> -->
+              <th>Budget</th>
+              <th>Expenses</th>
+              <th>Remainder</th>
+              <th></th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let budget of allBudget">
+              <td>
+                <!-- <a [routerLink]="['/products', product.id]">
+                {{ product.productName }}
+              </a> -->
+                {{ budget.title }}
+              </td>
+              <!-- <td>{{ budget.id }}</td> -->
+              <td>${{ budget.budget }}</td>
+
+              <!-- <td>{{ product.price | currency:"USD":"symbol":"1.2-2" }}</td> -->
+              <td>${{ budget.expenses }}</td>
+              <td>${{ budget.budget - budget.expenses }}</td>
+
+              <td>
+                <!-- <button class="btn btn-outline-primary btn-sm"
+                      [routerLink]="['/budget', 0, 'edit']"> -->
+                <button
+                  class="btn btn-outline-primary btn-sm mr-3"
+                  [routerLink]="['/budget', budget.id, 'edit']"
+                >
+                  Edit budget
+                </button>
+              </td>
+              <td class="input-group col-9">
+                <input
+                  #newExpense
+                  type="number"
+                  class="form-control"
+                  aria-label="expense"
+                  aria-describedby="new expense"
+                  placeholder="$"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-primary btn-sm"
+                    type="button"
+                    id="expense"
+                    (click)="addExpense(budget, newExpense.value)"
+                  >
+                    Modify expenses
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button
+          class="btn btn-outline-primary btn-sm mr-3"
+          [routerLink]="['/budget/0/edit']"
+        >
+          Add new
+        </button>
+        <button
+          class="btn btn-outline-primary btn-sm"
+          (click)="resetExpenses()"
+        >
+          Reset expenses
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row center">
+    <div class="col-6">
+      <h3>ChartJS Pie Chart</h3>
+      <p>
+        <canvas id="myChart" width="400px" height="400px"></canvas>
+      </p>
+    </div>
+    <div class="col-6">
+      <h3>D3JS Pie Chart</h3>
+      <pb-d3donut></pb-d3donut>
+    </div>
+    <div class="col-6">
+      <h3>ChartJS Radar Chart</h3>
+      <p>
+        <canvas
+          id="radar"
+          class="chart chart-radar"
+          chart-data="data"
+          chart-options="options"
+          chart-labels="labels"
+          width="400px"
+          height="400px"
+        >
+        </canvas>
+      </p>
+    </div>
+    <div class="col-6">
+      <h3>ChartJS Bar and Line Chart</h3>
+      <p>
+        <canvas
+          id="mixed"
+          class="chart chart-mixed"
+          chart-data="data"
+          chart-options="options"
+          chart-labels="labels"
+          width="400px"
+          height="400px"
+        >
+        </canvas>
+      </p>
+    </div>
+  </div>
+</main>

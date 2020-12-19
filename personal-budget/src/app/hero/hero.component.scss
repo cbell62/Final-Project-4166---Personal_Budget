@@ -1,0 +1,35 @@
+div.hero {
+  height: 400px;
+  background-color: #b4c6f0;
+  background-image: url('/assets/bg.png');
+  background-size: 400px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  padding-top: 40px;
+}
+
+div.hero h1,
+div.hero h2 {
+  text-align: center;
+  margin: 0;
+}
+
+div.hero h1 {
+  /* color: #7614E0; */
+  color: #4d5791;
+  font-size: 4.2em;
+  margin-bottom: 20px;
+}
+
+div.hero h2 {
+  color: #636778;
+  font-size: 1.8em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:active {
+  color: #636778;
+}

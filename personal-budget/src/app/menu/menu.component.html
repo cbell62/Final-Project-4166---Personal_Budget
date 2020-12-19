@@ -1,0 +1,17 @@
+<nav role="navigation" aria-label="Main navigation" class="l1">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav" routerLinkActive="active">
+      <li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="about">About</a></li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="contact">Contact</a>
+      </li>
+      <li class="nav-item" *ngFor="let link of links">
+        <a class="nav-link" [routerLink]="link.path">{{ link.text }}</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link" routerLink="home" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
