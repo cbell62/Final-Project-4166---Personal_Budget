@@ -1,1 +1,4 @@
-Personal Budget Web Application made with Visual Studio and using MySQl for the Database
+- **Personal Budget Web Application for Final Project in ITIS 4166 (Network Based App Development)**
+1. **Languages:** HTML, JavaScript, SCSS, JSON, and TyperScript 
+2. **Integrated Development Enviroment:** Visual Studio Code
+3. **Database:** MySQL
